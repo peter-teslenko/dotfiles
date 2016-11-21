@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/peter/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # http://mrjoelkemp.com/2013/06/remapping-iterm2-option-keys-for-fish-terminal/
 # bindkey "\e\[1\;9C" forward-word
@@ -16,7 +16,7 @@ ZSH_THEME="bullet-train"
 BULLETTRAIN_TIME_SHOW=false
 
 BULLETTRAIN_PROMPT_CHAR="λ"
-#BULLETTRAIN_PROMPT_CHAR="?~^~\ "
+#BULLETTRAIN_PROMPT_CHAR="➜ "
 BULLETTRAIN_DIR_EXTENDED=2
 BULLETTRAIN_DIR_BG=25
 #BULLETTRAIN_RUBY_SHOW=false
@@ -90,10 +90,16 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# changes hex 0x15 to delete everything to the left of the cursor,
+# rather than the whole line
+bindkey "^U" backward-kill-line
+
+# binds hex 0x18 0x7f with deleting everything to the left of the cursor
+#bindkey "^X\\x7f" backward-kill-line
+
+# adds redo
+#bindkey "^X^_" redo
 
 #alias ls="ls --color=always"
 alias grep="grep --color=always"
