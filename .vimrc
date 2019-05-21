@@ -22,8 +22,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jeetsukumaran/vim-buffergator'
@@ -33,11 +33,13 @@ Plugin 'godlygeek/tabular'
 Plugin 'mbbill/undotree'
 Plugin 'othree/html5.vim'
 Plugin '2072/PHP-Indenting-for-VIm'
-Plugin 'joonty/vdebug.git'
+"Plugin 'joonty/vdebug.git'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
-Plugin 'moll/vim-node'
+"Plugin 'moll/vim-node'
 Plugin 'mattn/emmet-vim'
+"Plugin 'nginx.vim'
+Plugin 'chr4/nginx.vim'
 
 Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
@@ -45,22 +47,21 @@ Plugin 'xolox/vim-misc'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'saltstack/salt-vim'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+"Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
-Plugin 'user/L9', {'name': 'newL9'}
+"Plugin 'user/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -69,9 +70,9 @@ filetype plugin indent on    " required
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 
-if has('mouse')
-  set mouse=a
-endif
+"if has('mouse')
+"  set mouse=a
+"endif
 
 set cursorline
 set nofoldenable
@@ -105,6 +106,9 @@ nmap <leader>l mQviwu`Q
 let g:buffergator_viewport_split_policy = "B"
 let g:buffergator_sort_regime = "mru"
 
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 autocmd Filetype php setlocal ts=4 sw=4 autoindent
 
